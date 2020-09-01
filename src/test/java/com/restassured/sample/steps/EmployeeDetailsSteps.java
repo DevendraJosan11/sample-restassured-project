@@ -1,8 +1,12 @@
 package com.restassured.sample.steps;
+
 import com.restassured.sample.dto.EmployeeResponse;
 import com.restassured.sample.dto.EmployeesResponse;
 import io.qameta.allure.Step;
-import io.restassured.http.ContentType;
+import org.apache.http.HttpStatus;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
 import org.springframework.stereotype.Component;
 
@@ -11,6 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @Component
 public class EmployeeDetailsSteps extends BaseSteps<EmployeeDetailsSteps> {
 
+    private static final Logger logger = LogManager.getLogger(EmployeeDetailsSteps.class);
     @Step
     public EmployeeDetailsSteps givenIHaveEmployeesServiceEndpoint() {
         endPoint = endPoints.getEmployeesServiceFullPath();
@@ -25,10 +30,9 @@ public class EmployeeDetailsSteps extends BaseSteps<EmployeeDetailsSteps> {
 
     @Step
     public EmployeeDetailsSteps thenIVerifyProfileImageIsBlankForAllEmployees() {
-        validateStatusCode();
-        assertTrue(response.getContentType().equals("application/json"));
+        logger.log(Level.INFO,"Response ------ : "+response.getBody().asString());
+        validateStatusCodeAndResponseContentType();
         employeesResponse = response.getBody().as(EmployeesResponse.class);
-        System.out.println("Response========"+response.getBody().asString());
         assertEquals("Successfully! All records has been fetched.",employeesResponse.message,"Verify records fetched successfully");
         employeesResponse
                 .data()
@@ -36,17 +40,18 @@ public class EmployeeDetailsSteps extends BaseSteps<EmployeeDetailsSteps> {
         return this;
     }
 
-    public EmployeeDetailsSteps validateStatusCode() {
+    public EmployeeDetailsSteps validateStatusCodeAndResponseContentType() {
         assertNotNull(response);
-        assertEquals(200,response.getStatusCode());
+        assertEquals(HttpStatus.SC_OK,response.getStatusCode());
+        assertTrue(response.getContentType().equals("application/json"));
         return this;
     }
 
     @Step
     public EmployeeDetailsSteps thenIVerifyEmployeeDetailsAndMessageForAllEmployees() {
-        validateStatusCode();
+        logger.log(Level.INFO,"Response ------ : "+response.getBody().asString());
+        validateStatusCodeAndResponseContentType();
         employeeResponse = response.getBody().as(EmployeeResponse.class);
-        System.out.println("Response========"+response.getBody().asString());
         assertEquals("success",employeeResponse.status,"verify status");
         assertNotNull(employeeResponse.data.id,"verify id");
         assertNotNull(employeeResponse.data.employeeSalary,"verify employee salary");

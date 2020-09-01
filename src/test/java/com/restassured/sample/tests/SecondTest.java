@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 
 @Epic("Employee Details")
 @Feature("Retrieve Employee Details")
-@DisplayName("Employees details tests")
+@DisplayName("Employees details tests- To pick request data from external file")
 
 public class SecondTest extends BaseTest{
 
@@ -15,8 +15,8 @@ public class SecondTest extends BaseTest{
 
     @ParameterizedTest
     @CsvFileSource(resources = employeesData,numLinesToSkip = 1)
-    @DisplayName("Retrieve employee details  and validate success message")
-    void secondTest(String EmployeeIDs){
+    @DisplayName("Retrieve employee details for all the employees available in external file and validate success message")
+    void shouldRetrieveEmployeeDetailsForEmployeeIdsInFile(String EmployeeIDs){
         steps
                 .givenIHaveEmployeesServiceEndpoint()
                 .whenIRetrieveEmployeesDetails("employee/"+EmployeeIDs)
