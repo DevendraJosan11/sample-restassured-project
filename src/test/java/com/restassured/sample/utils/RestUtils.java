@@ -11,7 +11,8 @@ public class RestUtils {
 
     public Response get (String endPointUrl) {
         return given()
-                .when().log().all()
+                .log()
+                .all()
                 .get(endPointUrl);
     }
 }

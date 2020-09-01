@@ -1,12 +1,11 @@
 -------------------------------------------------------------------------------
 Test set: com.restassured.sample.tests.SecondTest
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 16.15 s - in com.restassured.sample.tests.SecondTest
-secondTest{String}[1]  Time elapsed: 1.076 s
-secondTest{String}[2]  Time elapsed: 1.282 s
-secondTest{String}[3]  Time elapsed: 1.582 s
-secondTest{String}[4]  Time elapsed: 2.29 s
-secondTest{String}[5]  Time elapsed: 1.328 s
-secondTest{String}[7]  Time elapsed: 0.547 s
-secondTest{String}[9]  Time elapsed: 0.509 s
-secondTest{String}[10]  Time elapsed: 0.493 s
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 20.121 s - in com.restassured.sample.tests.SecondTest
+shouldRetrieveEmployeeDetailsForEmployeeIdsInFile{String}[1]  Time elapsed: 1.185 s
+shouldRetrieveEmployeeDetailsForEmployeeIdsInFile{String}[2]  Time elapsed: 2.638 s
+shouldRetrieveEmployeeDetailsForEmployeeIdsInFile{String}[4]  Time elapsed: 0.759 s
+shouldRetrieveEmployeeDetailsForEmployeeIdsInFile{String}[5]  Time elapsed: 0.747 s
+shouldRetrieveEmployeeDetailsForEmployeeIdsInFile{String}[6]  Time elapsed: 0.74 s
+shouldRetrieveEmployeeDetailsForEmployeeIdsInFile{String}[7]  Time elapsed: 0.815 s
+shouldRetrieveEmployeeDetailsForEmployeeIdsInFile{String}[9]  Time elapsed: 0.779 s
