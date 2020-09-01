@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: com.restassured.sample.tests.SecondTest
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 16.15 s - in com.restassured.sample.tests.SecondTest
+secondTest{String}[1]  Time elapsed: 1.076 s
+secondTest{String}[2]  Time elapsed: 1.282 s
+secondTest{String}[3]  Time elapsed: 1.582 s
+secondTest{String}[4]  Time elapsed: 2.29 s
+secondTest{String}[5]  Time elapsed: 1.328 s
+secondTest{String}[7]  Time elapsed: 0.547 s
+secondTest{String}[9]  Time elapsed: 0.509 s
+secondTest{String}[10]  Time elapsed: 0.493 s
